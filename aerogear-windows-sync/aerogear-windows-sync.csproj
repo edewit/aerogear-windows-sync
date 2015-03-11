@@ -39,6 +39,10 @@
   <ItemGroup>
     <Compile Include="BackupShadowDocument.cs" />
     <Compile Include="ClientDocument.cs" />
+    <Compile Include="client\ClientDataStore.cs" />
+    <Compile Include="client\ClientInMemoryDataStore.cs" />
+    <Compile Include="client\ClientSyncEngine.cs" />
+    <Compile Include="client\ClientSynchronizer.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="Diff.cs" />
     <Compile Include="Document.cs" />

@@ -1,5 +1,4 @@
-﻿using aerogear_windows_sync;
-/// <summary>
+﻿/// <summary>
 /// JBoss, Home of Professional Open Source
 /// Copyright Red Hat, Inc., and individual contributors.
 /// 

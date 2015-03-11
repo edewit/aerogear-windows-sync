@@ -14,24 +14,9 @@
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 /// </summary>
-namespace Aerogear.Sync
+namespace Aerogear.Sync.Client
 {
-    /// <summary>
-    /// Represents the server side version of a document
-    /// </summary>
-    /// <typeparam name="T">The type of the document contents.</typeparam>
-    public interface Document<T>
+    public class ClientSyncEngine<T, S> where S : Edit<Diff>
     {
-        /// <summary>
-        /// The identifier for a document.
-        /// </summary>
-        /// <returns>the document identifier.</returns>
-        string Id();
-
-        /// <summary>
-        /// The content of a document.
-        /// </summary>
-        /// <returns>the content</returns>
-        T Content();
     }
 }

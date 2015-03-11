@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using aerogear_windows_sync;
 
 /// <summary>
 /// JBoss, Home of Professional Open Source
@@ -26,16 +25,14 @@ namespace Aerogear.Sync
 	/// </summary>
 	/// @param <T> The type of the Document that this data store can store. </param>
 	/// @param <S> The type of <seealso cref="Edit"/>s that this data store can store </param>
-//JAVA TO C# CONVERTER TODO TASK: Java wildcard generics are not converted to .NET:
-//ORIGINAL LINE: public interface DataStore<T, S extends Edit<? extends Diff>>
-	public interface DataStore<T, S> where S : Edit<? extends Diff>
+	public interface DataStore<T, S> where S : Edit<Diff>
 	{
 
 		/// <summary>
 		/// Saves a shadow document.
 		/// </summary>
 		/// <param name="shadowDocument"> the <seealso cref="ShadowDocument"/> to save. </param>
-		void saveShadowDocument(ShadowDocument<T> shadowDocument);
+		void SaveShadowDocument(ShadowDocument<T> shadowDocument);
 
 		/// <summary>
 		/// Retrieves the <seealso cref="ShadowDocument"/> matching the passed-in document documentId.
@@ -43,13 +40,13 @@ namespace Aerogear.Sync
 		/// <param name="documentId"> the document id of the shadow document. </param>
 		/// <param name="clientId"> the client for which to retrieve the shadow document. </param>
 		/// <returns> <seealso cref="ShadowDocument"/> the shadow document matching the documentId. </returns>
-		ShadowDocument<T> getShadowDocument(string documentId, string clientId);
+		ShadowDocument<T> GetShadowDocument(string documentId, string clientId);
 
 		/// <summary>
 		/// Saves a backup shadow document
 		/// </summary>
 		/// <param name="backupShadow"> the <seealso cref="BackupShadowDocument"/> to save. </param>
-		void saveBackupShadowDocument(BackupShadowDocument<T> backupShadow);
+		void SaveBackupShadowDocument(BackupShadowDocument<T> backupShadow);
 
 		/// <summary>
 		/// Retrieves the <seealso cref="BackupShadowDocument"/> matching the passed-in document documentId.
@@ -57,7 +54,7 @@ namespace Aerogear.Sync
 		/// <param name="documentId"> the document identifier of the backup shadow document. </param>
 		/// <param name="clientId"> the client identifier for which to fetch the document. </param>
 		/// <returns> <seealso cref="BackupShadowDocument"/> the backup shadow document matching the documentId. </returns>
-		BackupShadowDocument<T> getBackupShadowDocument(string documentId, string clientId);
+		BackupShadowDocument<T> GetBackupShadowDocument(string documentId, string clientId);
 
 		/// <summary>
 		/// Saves an <seealso cref="Edit"/> to the data store.
@@ -65,7 +62,7 @@ namespace Aerogear.Sync
 		/// <param name="edit"> the edit to be saved. </param>
 		/// <param name="documentId"> the document identifier for the edit </param>
 		/// <param name="clientId"> the client identifier for the edit </param>
-		void saveEdits(S edit, string documentId, string clientId);
+		void SaveEdits(S edit, string documentId, string clientId);
 
 		/// <summary>
 		/// Retreives the queue of <seealso cref="Edit"/>s for the specified document documentId.
@@ -73,7 +70,7 @@ namespace Aerogear.Sync
 		/// <param name="documentId"> the document identifier of the edit. </param>
 		/// <param name="clientId"> the client identifier for which to fetch the document. </param>
 		/// <returns> {@code Queue<S>} the edits for the document. </returns>
-		LinkedList<S> getEdits(string documentId, string clientId);
+		LinkedList<S> GetEdits(string documentId, string clientId);
 
 		/// <summary>
 		/// Removes the edit from the store.
@@ -81,14 +78,14 @@ namespace Aerogear.Sync
 		/// <param name="edit"> the edit to be removed. </param>
 		/// <param name="documentId"> the document identifier for the edit </param>
 		/// <param name="clientId"> the client identifier for the edit </param>
-		void removeEdit(S edit, string documentId, string clientId);
+		void RemoveEdit(S edit, string documentId, string clientId);
 
 		/// <summary>
 		/// Removes all edits for the specific client and document pair.
 		/// </summary>
 		/// <param name="documentId"> the document identifier of the edit. </param>
 		/// <param name="clientId"> the client identifier. </param>
-		void removeEdits(string documentId, string clientId);
+		void RemoveEdits(string documentId, string clientId);
 
 	}
 }
