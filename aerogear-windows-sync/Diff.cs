@@ -16,23 +16,15 @@
 /// </summary>
 namespace Aerogear.Sync
 {
-    /// <summary>
-    /// Represents something that can be exchanged in JSON format.
-    /// </summary>
-    /// <typeparam name="T">the type of the payload</typeparam>
-    public interface Payload<T>
-    {
-        /// <summary>
-        /// Transforms this payload to a JSON String representation.
-        /// </summary>
-        /// <returns>the payload as a JSON String representation</returns>
-        string AsJson();
 
-        /// <summary>
-        /// Transforms the passed in string JSON representation into this payloads type.
-        /// </summary>
-        /// <param name="json">a string representation of this payloads type</param>
-        /// <returns>an instance of this payloads type</returns>
-        T FromJson(string json);
+    /// <summary>
+    /// A marker interface that represents a diff or two versions of a document/object.
+    /// <para>
+    /// The actual implementation of a diff will vary depending on the type of content the
+    /// <seealso cref="ClientSynchronizer"/> or <seealso cref="ServerSynchronizer"/> can handle.
+    /// </para>
+    /// </summary>
+    public interface Diff
+    {
     }
 }

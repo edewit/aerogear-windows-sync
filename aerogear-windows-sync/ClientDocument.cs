@@ -16,23 +16,19 @@
 /// </summary>
 namespace Aerogear.Sync
 {
+
     /// <summary>
-    /// Represents something that can be exchanged in JSON format.
+    /// A client document is used on both the server and client side and
+    /// associates a client identifier with a <seealso cref="Document"/>.
     /// </summary>
-    /// <typeparam name="T">the type of the payload</typeparam>
-    public interface Payload<T>
+    /// @param <T> the type of this documents content. </param>
+    public interface ClientDocument<T> : Document<T>
     {
-        /// <summary>
-        /// Transforms this payload to a JSON String representation.
-        /// </summary>
-        /// <returns>the payload as a JSON String representation</returns>
-        string AsJson();
 
         /// <summary>
-        /// Transforms the passed in string JSON representation into this payloads type.
+        /// Identifies a client or session to which this Document belongs.
         /// </summary>
-        /// <param name="json">a string representation of this payloads type</param>
-        /// <returns>an instance of this payloads type</returns>
-        T FromJson(string json);
+        /// <returns> {@code String} the client identifier. </returns>
+        string clientId();
     }
 }

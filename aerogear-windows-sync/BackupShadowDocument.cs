@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using aerogear_windows_sync;
+/// <summary>
 /// JBoss, Home of Professional Open Source
 /// Copyright Red Hat, Inc., and individual contributors.
 /// 
@@ -16,23 +17,25 @@
 /// </summary>
 namespace Aerogear.Sync
 {
+
     /// <summary>
-    /// Represents something that can be exchanged in JSON format.
+    /// A backup of the ShadowDocument.
     /// </summary>
-    /// <typeparam name="T">the type of the payload</typeparam>
-    public interface Payload<T>
+    /// @param <T> The type of the Document that this instance backups. </param>
+    public interface BackupShadowDocument<T>
     {
-        /// <summary>
-        /// Transforms this payload to a JSON String representation.
-        /// </summary>
-        /// <returns>the payload as a JSON String representation</returns>
-        string AsJson();
 
         /// <summary>
-        /// Transforms the passed in string JSON representation into this payloads type.
+        /// Represents the version of this backup shadow.
         /// </summary>
-        /// <param name="json">a string representation of this payloads type</param>
-        /// <returns>an instance of this payloads type</returns>
-        T FromJson(string json);
+        /// <returns> {@code long} the server version. </returns>
+        long version();
+
+        /// <summary>
+        /// The <seealso cref="ShadowDocument"/> that this instance is backing up.
+        /// </summary>
+        /// <returns> <seealso cref="ShadowDocument"/> that this instance is backing up. </returns>
+        ShadowDocument<T> shadow();
+
     }
 }
