@@ -20,20 +20,22 @@ namespace Aerogear.Sync
     /// <summary>
     /// Represents a single edit.
     /// </summary>
-    public interface Edit<T> where T : Diff
+    public interface Edit<T> where T: Diff
     {
+        string ClientId { get; }
+        string DocumentId { get; }
 
         /// <summary>
         /// The client version that edit is related to.
         /// </summary>
         /// <returns> {@code long} the client version that this edit is based on. </returns>
-        long clientVersion();
+        long ClientVersion { get; }
 
         /// <summary>
         /// The server version that edit is related to.
         /// </summary>
         /// <returns> {@code long} the server version that this edit is based on. </returns>
-        long serverVersion();
+        long ServerVersion { get; }
 
         /// <summary>
         /// A checksum of the opposing sides shadow document.
@@ -42,13 +44,13 @@ namespace Aerogear.Sync
         /// the shadow documents on both sides are in fact identical.
         /// </summary>
         /// <returns> {@code String} the opposing side's checksum of the shadow document </returns>
-        string checksum();
+        string Checksum { get; }
 
         /// <summary>
         /// The <seealso cref="Diff"/> for this edit.
         /// </summary>
         /// <returns> {@code T} the diff that represents the changes for this edit </returns>
-        T diff();
+        T GetDiff { get; }
 
     }
 }

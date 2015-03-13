@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aerogear.Sync.synchronizers
+namespace Aerogear.Sync.Json
 {
     public class JsonMergePatchDiff : Diff
     {
@@ -29,9 +29,31 @@ namespace Aerogear.Sync.synchronizers
             return "JsonMergePatchDiff[jsonMergePatch=" + jsonMergePatch + ']';
         }
 
-        public static JsonMergePatchDiff fromJsonNode(JToken jsonNode)
+        public static JsonMergePatchDiff FromJsonNode(JToken jsonNode)
         {
             return new JsonMergePatchDiff(PatchDocument.Parse(jsonNode.ToString()), jsonNode.GetHashCode());
+        }
+
+        public override bool Equals(object o)
+        {
+            if (this == o)
+            {
+                return true;
+            }
+            if (o == null || this.GetType() != o.GetType())
+            {
+                return false;
+            }
+            JsonMergePatchDiff that = (JsonMergePatchDiff)o;
+            return jsonNodeHashCode == that.jsonNodeHashCode;
+        }
+
+        public override int GetHashCode()
+        {
+            int result = jsonMergePatch.GetHashCode();
+            result = 31 * result + jsonNodeHashCode;
+            return result;
+
         }
     }
 }

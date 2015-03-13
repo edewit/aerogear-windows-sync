@@ -25,7 +25,7 @@ namespace Aerogear.Sync
 	/// </summary>
 	/// @param <T> The type of the Document that this data store can store. </param>
 	/// @param <S> The type of <seealso cref="Edit"/>s that this data store can store </param>
-	public interface DataStore<T, S> where S : Edit<Diff>
+	public interface DataStore<T, S>
 	{
 
 		/// <summary>

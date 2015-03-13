@@ -20,18 +20,15 @@ namespace Aerogear.Sync
     /// Represents the server side version of a document
     /// </summary>
     /// <typeparam name="T">The type of the document contents.</typeparam>
-    public interface Document<T>
+    public class Document<T>
     {
-        /// <summary>
-        /// The identifier for a document.
-        /// </summary>
-        /// <returns>the document identifier.</returns>
-        string Id();
+        public string Id { get; protected set; }
+        public T Content { get; protected set; }
 
-        /// <summary>
-        /// The content of a document.
-        /// </summary>
-        /// <returns>the content</returns>
-        T Content();
+        public Document(string id, T content) 
+        {
+            Id = id;
+            Content = content;
+        }
     }
 }

@@ -22,13 +22,19 @@ namespace Aerogear.Sync
     /// associates a client identifier with a <seealso cref="Document"/>.
     /// </summary>
     /// @param <T> the type of this documents content. </param>
-    public interface ClientDocument<T> : Document<T>
+    public class ClientDocument<T> : Document<T>
     {
 
         /// <summary>
         /// Identifies a client or session to which this Document belongs.
         /// </summary>
         /// <returns> {@code String} the client identifier. </returns>
-        string clientId();
+        public string ClientId { get; protected set; }
+
+        public ClientDocument(string id, string clientId, T content)
+            : base(id, content)
+        {
+            ClientId = clientId;
+        }
     }
 }

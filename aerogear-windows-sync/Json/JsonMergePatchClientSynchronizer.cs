@@ -1,11 +1,11 @@
 ﻿using Aerogear.Sync.Client;
 using Newtonsoft.Json.Linq;
 
-namespace Aerogear.Sync.synchronizers
+namespace Aerogear.Sync.Json
 {
     public class JsonMergePatchClientSynchronizer : ClientSynchronizer<JToken, JsonMergePatchEdit>
     {
-        public ShadowDocument<JToken> ClientSynchronizer<JToken, JsonMergePatchEdit>.PatchShadow(JsonMergePatchEdit edit, ShadowDocument<JToken> shadowDocument)
+        ShadowDocument<JToken> ClientSynchronizer<JToken, JsonMergePatchEdit>.PatchShadow(JsonMergePatchEdit edit, ShadowDocument<JToken> shadowDocument)
         {
             throw new System.NotImplementedException();
         }

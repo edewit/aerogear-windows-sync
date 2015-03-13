@@ -25,7 +25,7 @@ namespace Aerogear.Sync.Client
 	/// </summary>
 	/// @param <T> The type of documents that this synchronizer can handle </param>
 	/// @param <S> The type of <seealso cref="Edit"/>s that this synchronizer can handle </param>
-	public interface ClientSynchronizer<T, S> where S : Edit<Diff>
+	public interface ClientSynchronizer<T, S>
 	{
 
 		/// <summary>

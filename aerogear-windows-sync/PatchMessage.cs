@@ -28,7 +28,7 @@ namespace Aerogear.Sync
 	/// </para>
 	/// </summary>
 	/// @param <T> The type of the <seealso cref="Edit"/> that this PatchMessage holds </param>
-	public interface PatchMessage<T> : Payload<PatchMessage<T>> where T : Edit<Diff>
+	public interface PatchMessage<T> : Payload<PatchMessage<T>>
 	{
 
 		/// <summary>

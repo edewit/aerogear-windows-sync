@@ -43,20 +43,20 @@
     <Compile Include="BackupShadowDocument.cs" />
     <Compile Include="ClientDocument.cs" />
     <Compile Include="client\ClientDataStore.cs" />
-    <Compile Include="client\ClientInMemoryDataStore.cs" />
     <Compile Include="client\ClientSyncEngine.cs" />
     <Compile Include="client\ClientSynchronizer.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="Diff.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Edit.cs" />
+    <Compile Include="InMemoryDataStore.cs" />
     <Compile Include="PatchMessage.cs" />
     <Compile Include="Payload.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShadowDocument.cs" />
-    <Compile Include="synchronizers\JsonMergePatchClientSynchronizer.cs" />
-    <Compile Include="synchronizers\JsonMergePatchDiff.cs" />
-    <Compile Include="synchronizers\JsonMergePatchEdit.cs" />
+    <Compile Include="Json\JsonMergePatchClientSynchronizer.cs" />
+    <Compile Include="Json\JsonMergePatchDiff.cs" />
+    <Compile Include="Json\JsonMergePatchEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
