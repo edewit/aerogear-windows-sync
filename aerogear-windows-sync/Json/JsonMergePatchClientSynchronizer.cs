@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 using Aerogear.Sync.Client;
+using JsonDiffPatch;
 using Newtonsoft.Json.Linq;
 
 namespace Aerogear.Sync.Json
@@ -28,17 +29,22 @@ namespace Aerogear.Sync.Json
 
         ClientDocument<JToken> ClientSynchronizer<JToken, JsonMergePatchEdit>.PatchDocument(JsonMergePatchEdit edit, ClientDocument<JToken> document)
         {
-            throw new System.NotImplementedException();
+            var patcher = new JsonPatcher();
+            var content = document.Content;
+            patcher.Patch(ref content, edit.Diff.JsonMergePatch());
+            return new ClientDocument<JToken>(document.Id, document.ClientId, content);
         }
 
         JsonMergePatchEdit ClientSynchronizer<JToken, JsonMergePatchEdit>.ServerDiff(ClientDocument<JToken> document, ShadowDocument<JToken> shadowDocument)
         {
-            throw new System.NotImplementedException();
+            var diff = new JsonDiffer().Diff(document.Content, shadowDocument.Document.Content);
+            return new JsonMergePatchEdit(shadowDocument.Document.ClientId, shadowDocument.Document.Id, shadowDocument.ClientVersion, shadowDocument.ServerVersion, new JsonMergePatchDiff(diff));
         }
 
         JsonMergePatchEdit ClientSynchronizer<JToken, JsonMergePatchEdit>.ClientDiff(ShadowDocument<JToken> shadowDocument, ClientDocument<JToken> document)
         {
-            throw new System.NotImplementedException();
+            var diff = new JsonDiffer().Diff(shadowDocument.Document.Content, document.Content);
+            return new JsonMergePatchEdit(shadowDocument.Document.ClientId, shadowDocument.Document.Id, shadowDocument.ClientVersion, shadowDocument.ServerVersion, new JsonMergePatchDiff(diff));
         }
 
         PatchMessage<JsonMergePatchEdit> ClientSynchronizer<JToken, JsonMergePatchEdit>.CreatePatchMessage(string documentId, string clientId, System.Collections.Generic.LinkedList<JsonMergePatchEdit> edits)

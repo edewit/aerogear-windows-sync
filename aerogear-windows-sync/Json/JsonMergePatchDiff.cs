@@ -35,6 +35,12 @@ namespace Aerogear.Sync.Json
             this.jsonNodeHashCode = Arguments.checkNotNull(jsonNodeHashCode, "jsonNodeHashCode must not be null");
         }
 
+        public JsonMergePatchDiff(PatchDocument diff)
+        {
+            this.jsonMergePatch = diff;
+            this.jsonNodeHashCode = diff.GetHashCode();
+        }
+
         public virtual PatchDocument JsonMergePatch()
         {
             return jsonMergePatch;

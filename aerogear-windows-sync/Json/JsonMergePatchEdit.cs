@@ -25,14 +25,15 @@ namespace Aerogear.Sync.Json
         private readonly long clientVersion;
         private readonly long serverVersion;
         private readonly string checksum;
-        public string ClientId { get { return clientId;  } }
+        private readonly JsonMergePatchDiff diff;
+        public string ClientId { get { return clientId; } }
         public string DocumentId { get { return documentId; } }
         public long ClientVersion { get { return clientVersion; } }
         public long ServerVersion { get { return serverVersion; } }
         public string Checksum { get { return checksum; } }
-        private readonly JsonMergePatchDiff diff;
+        public JsonMergePatchDiff Diff { get { return diff; } }
 
-        private JsonMergePatchEdit(string clientId, string documentId, long clientVersion, long serverVersion, JsonMergePatchDiff diff)
+        public JsonMergePatchEdit(string clientId, string documentId, long clientVersion, long serverVersion, JsonMergePatchDiff diff)
         {
             this.clientId = clientId;
             this.clientVersion = clientVersion;
@@ -40,11 +41,6 @@ namespace Aerogear.Sync.Json
             this.serverVersion = serverVersion;
             this.checksum = Arguments.checkNotNull(checksum, "checksum must not be null");
             this.diff = diff;
-        }
-
-        JsonMergePatchDiff Edit<JsonMergePatchDiff>.GetDiff
-        {
-            get { return diff; }
         }
 
         public override string ToString()

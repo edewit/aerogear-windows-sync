@@ -50,7 +50,7 @@ namespace Aerogear.Sync
         /// The <seealso cref="Diff"/> for this edit.
         /// </summary>
         /// <returns> {@code T} the diff that represents the changes for this edit </returns>
-        T GetDiff { get; }
+        T Diff { get; }
 
     }
 }

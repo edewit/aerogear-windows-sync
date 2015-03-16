@@ -25,26 +25,33 @@ namespace Aerogear.Sync
     /// </para>
     /// </summary>
     /// @param <T> The type of the Document that this instance shadows. </param>
-    public interface ShadowDocument<T>
+    public class ShadowDocument<T>
     {
 
         /// <summary>
         /// Represents the latest server version that the this shadow document was based on.
         /// </summary>
         /// <returns> {@code long} the server version. </returns>
-        long serverVersion();
+        public long ServerVersion {get; protected set;}
 
         /// <summary>
         /// Represents the latest client version that this shadow document was based on.
         /// </summary>
         /// <returns> {@code long} the client version. </returns>
-        long clientVersion();
+        public long ClientVersion { get; protected set; }
 
         /// <summary>
         /// The document itself.
         /// </summary>
         /// <returns> T the document. </returns>
-        ClientDocument<T> document();
+        public ClientDocument<T> Document { get; protected set; }
+
+        public ShadowDocument(long serverVersion, long clientVersion, ClientDocument<T> document)
+        {
+            this.ServerVersion = serverVersion;
+            this.ClientVersion = clientVersion;
+            this.Document = document;
+        }
 
     }
 }

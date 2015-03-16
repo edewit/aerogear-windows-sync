@@ -45,6 +45,7 @@
     <Compile Include="client\ClientDataStore.cs" />
     <Compile Include="client\ClientSyncEngine.cs" />
     <Compile Include="client\ClientSynchronizer.cs" />
+    <Compile Include="client\SyncClient.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="Diff.cs" />
     <Compile Include="Document.cs" />

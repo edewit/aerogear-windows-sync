@@ -40,7 +40,7 @@ namespace Aerogear.Sync
 
         public void SaveShadowDocument(ShadowDocument<T> shadowDocument)
         {
-            shadows.Add(key(shadowDocument.document()), shadowDocument);
+            shadows.Add(key(shadowDocument.Document), shadowDocument);
         }
 
         public ShadowDocument<T> GetShadowDocument(string documentId, string clientId)
@@ -50,7 +50,7 @@ namespace Aerogear.Sync
 
         public void SaveBackupShadowDocument(BackupShadowDocument<T> backupShadow)
         {
-            backups.Add(key(backupShadow.shadow().document()), backupShadow);
+            backups.Add(key(backupShadow.shadow().Document), backupShadow);
         }
 
         public BackupShadowDocument<T> GetBackupShadowDocument(string documentId, string clientId)
